@@ -1,0 +1,43 @@
+<div>
+  <p>
+    <h2>Welcome, {{name}}</h2>
+    <form class='form project-form'>
+      <div class='form-group'>
+        <label for='project-name'>project name:</label>
+        <input class='form-input' type='text' id='project-name' />
+      </div>
+      <div class='form-group'>
+        <label for='project-funding'>needed funding $:</label>
+        <input class='form-input' type='text' id='project-funding' />
+      </div>
+      <div class='form-group'>
+        <label for='project-description'>description:</label>
+        <input class='form-input' type='text' id='project-description' />
+      </div>
+      <div class='form-group'>
+        <button class='btn btn-primary' type='submit'>Create</button>
+      </div>
+    </form>
+    <div>
+      {{! if there are projects in the projects array render the following block }}
+      {{#if projects.length}}
+        <div class='project-list'>
+          <h2>Current Projects:</h2>
+          {{#each projects as |project|}}
+            <div class='row align-center mb-5'>
+              <div class='col-md-6'>
+                <h2><a href='/project/{{project.id}}'>{{project.name}}</a></h2>
+                <button
+                  class='btn btn-danger'
+                  data-id='{{project.id}}'
+                  id='delete-btn'
+                >DELETE</button>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  </p>
+</div>
+<script src='./js/profile.js'></script>
