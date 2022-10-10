@@ -15,13 +15,10 @@
   <body>
     <header class="display-flex justify-space-between align-center p-2">
       <nav>
-        {{#if logged_in}}
-          <a href="/dashboard">Dashboard</a>
-          {{! Conditionally render login or logout links }}
-          <button class="btn" id="logout">logout</button>
-        {{else}}
-          <a href="/login">Login</a>
-        {{/if}}
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        {{! Conditionally render login or logout links }}
+        <button class="btn" id="logout">logout</button>
       </nav>
       <h1>
         The Tech Blog
@@ -33,12 +30,10 @@
       {{{body}}}
     </main>
     <footer>
-
+      <a href="/dashboard/newpost">
+        <button class="btn btn-dark" , id="new-post-btn">+ New Post</button></a>
     </footer>
-
-    {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
+    <script src="/js/logout.js"></script>
 
     <!-- JavaScript Bundle with Popper -->
     <script
