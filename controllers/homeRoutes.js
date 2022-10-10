@@ -92,4 +92,27 @@ router.get("/profile", async (req, res) => {
   }
 });
 
+// Use withAuth to prevent access to route
+router.get("/newpost", async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Project,
+        },
+      ],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render("newpost", {
+      ...user,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
 module.exports = router;

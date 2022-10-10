@@ -43,3 +43,7 @@ document
 document
   .querySelector(".project-list")
   .addEventListener("click", deleteHandler);
+
+// document.querySelector("#new-post-btn").addEventListener("click", () => {
+//   console.log("testing");
+// });
