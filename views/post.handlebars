@@ -3,7 +3,9 @@
     <h2>{{name}}</h2>
     <p>{{description}}</p>
     <p>Created by {{user.name}} on {{date_created}}</p>
-    <button id="update-button">Update post</button>
-    <button id="delete-button">Delete</button>
+    {{#if logged_in}}
+      <button id="update-button">Update post</button>
+      <button id="delete-button">Delete</button>
+    {{/if}}
   </p>
 </div>

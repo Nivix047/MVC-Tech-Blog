@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -52,7 +52,8 @@ router.get("/post/:id", async (req, res) => {
         },
       ],
     });
-
+    console.log("----postData----");
+    console.log(postData);
     const post = postData.get({ plain: true });
 
     res.render("post", {

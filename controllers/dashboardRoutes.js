@@ -31,4 +31,28 @@ router.get("/newpost", withAuth, async (req, res) => {
   });
 });
 
+router.get("/post/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User],
+        },
+      ],
+    });
+    console.log("----postData----");
+    console.log(postData);
+    const post = postData.get({ plain: true });
+
+    res.render("post", {
+      ...post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
 module.exports = router;
