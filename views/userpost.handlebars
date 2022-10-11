@@ -2,8 +2,9 @@
     <div class="row align-center mb-5">
       <div class="col-md-6">
         <h2><a href="/post/{{id}}">
-            <span>{{posts}}</span>
-            <span>{{date_created}}</span></a></h2>
+            <span>{{title}}</span>
+            <span>Posted by {{user.username}} {{date_created}}</span></a></h2>
+        <div>{{body}}</div>
       </div>
     </div>
   {{/each}}

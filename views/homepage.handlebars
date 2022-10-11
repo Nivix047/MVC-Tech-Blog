@@ -1,9 +1,12 @@
 <div>{{#each posts}}
     <div class="row align-center mb-5">
       <div class="col-md-6">
-        <h2><a href="/post/{{id}}">{{title}}</a></h2>
+        <div>
+          <h2><a href="/post/{{id}}">{{title}}</a><span>{{date_created}}</span>
+            <span>Posted by {{user.username}}</span>
+          </h2>
+        </div>
         <h2>{{posts.title}}</h2>
-        <p>Posted by {{user.username}} on {{date_created}}</p>
         <p>{{body}}</p>
       </div>
     </div>
