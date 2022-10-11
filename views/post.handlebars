@@ -4,8 +4,16 @@
     <p>{{description}}</p>
     <p>Created by {{user.name}} on {{date_created}}</p>
     {{#if logged_in}}
-      <button id="update-button">Update post</button>
-      <button id="delete-button">Delete</button>
+  <div>
+      <form class="form comment-form">
+        <div class="form-group">
+          <label for="post-comment">Comment</label>
+          <input class="form-input" type="text" id="post-coment" />
+          <div class="form-group">
+            <button class="btn btn-secondary" type="submit">Submit</button>
+          </div>
+      </form>
+    </div>
     {{/if}}
   </p>
 </div>
