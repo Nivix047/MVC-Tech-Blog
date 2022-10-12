@@ -1,4 +1,27 @@
-<div class="login-card">
+<form class="signup-form p-5">
+  <h1 class="mb-3">
+    Sign up
+  </h1>
+  <div class="mb-3">
+    <label for="username-signup" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username-signup" />
+  </div>
+  <div class="mb-3">
+    <label for="password-signup" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password-signup" />
+  </div>
+  <div class="form-group mb-3">
+    <button type="submit" class="btn btn-secondary w-100">Sign up</button>
+  </div>
+  <div class="form-group">
+    <a href="/login">Login instead</a>
+  </div>
+</form>
+
+<script src="/js/signup.js"></script>
+
+{{! Old codes }}
+{{! <div class="login-card">
   <h2 class="page-title">Signup</h2>
   <form class="form signup-form">
     <div class="form-group">
@@ -16,6 +39,4 @@
       <a href="/login">Login instead</a>
     </div>
   </form>
-</div>
-
-<script src="/js/signup.js"></script>
+</div> }}
