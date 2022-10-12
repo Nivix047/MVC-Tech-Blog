@@ -1,26 +1,35 @@
-#main-container {
+.container {
   background-color: var(--green);
 }
 
+/* login href */
 #login {
   color: var(--green);
   font-weight: bold;
   text-decoration: none;
 }
-
-#logout {
+/* logout href */
+.logout {
   color: var(--green);
   font-weight: bold;
   text-decoration: none;
 }
 
-#dashboard {
+/* dashboard href */
+.dashboard {
   color: var(--green);
   font-weight: bold;
   text-decoration: none;
 }
 
-#header-title {
+/* home href */
+.home {
+  color: var(--green);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.header {
   background-color: var(--green);
   box-shadow: 5px 10px #888888;
   text-align: center;
