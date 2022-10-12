@@ -37,13 +37,16 @@
   font-weight: bold;
 }
 
-#userpost {
-  border-radius: 8px;
+/* homepage */
+#home-post-title {
+  color: var(--green);
 }
 
-/* #login-form {
-  border: solid black;
-} */
+/* homepage */
+#home-post-info {
+  text-align: right;
+  color: var(--green);
+}
 
 :root {
   --green: rgb(196, 216, 196);

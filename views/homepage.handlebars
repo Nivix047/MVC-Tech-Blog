@@ -1,4 +1,22 @@
-<div>{{#each posts}}
+<div class="container">
+  {{#each posts}}
+    <div class="row m-5 border border-dark">
+      <a
+        href="/post/{{id}}"
+        class="col border border-dark bg-dark"
+        id="home-post-title"
+      >{{title}}</a>
+      <div class="col border border-dark bg-dark" id="home-post-info">Posted by
+        {{user.username}}
+        on
+        {{date_created}}</div>
+      <div class="text-left">{{body}}</div>
+    </div>
+  {{/each}}
+</div>
+
+{{! Old codes }}
+{{!-- <div>{{#each posts}}
     <div class="row align-center mb-5">
       <div class="col-md-6">
         <div>
@@ -11,4 +29,4 @@
       </div>
     </div>
   {{/each}}
-</div>
+</div> --}}
