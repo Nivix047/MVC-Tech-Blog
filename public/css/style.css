@@ -48,6 +48,20 @@
   color: var(--green);
 }
 
+/* dashboard */
+#dashboard-post-title {
+  color: var(--green);
+}
+
+#dashboard-post-info {
+  text-align: right;
+  color: var(--green);
+}
+
+#main-body {
+  background-color: var(--green);
+}
+
 :root {
   --green: rgb(196, 216, 196);
 }

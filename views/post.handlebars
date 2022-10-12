@@ -1,20 +1,29 @@
-<div>
-  <h2>
-    <span>{{title}}</span>
-    <span>Posted by {{user.username}} {{date_created}} </span>
-  </h2>
-  <div>{{body}}</div>
-{{!-- can do if logged && comment --}}
-  {{#if logged_in}}
-    <div>
-      <form class="form comment-form">
-        <div class="form-group">
-          <label for="post-comment">Comment</label>
-          <input class="form-input" type="text" id="post-coment" />
-          <div class="form-group">
-            <button class="btn btn-secondary" type="submit">Submit</button>
-          </div>
-      </form>
+<div class="container">
+  <div class="row border border-dark">
+    <div class="col border border-dark bg-dark" id="dashboard-post-title">
+      {{title}}
     </div>
-  {{/if}}
+    <div class="col border border-dark bg-dark" id="dashboard-post-info">Posted
+      by
+      {{user.username}}
+      on
+      {{date_created}}</div>
+    <div class="text-left">{{body}}</div>
+  </div>
 </div>
+
+{{#if logged_in}}
+  <form class="comment-form m-2">
+    <div class="row border border-dark">
+      <div class="col border border-dark bg-dark">FOR DISPLAY ONLY
+      </div>
+      <div class="mb-3">
+        <label for="comment-post" class="form-label">Content</label>
+        <input type="text" class="form-control-lg w-100" id="comment-post" />
+      </div>
+      <div class="form-group mb-3">
+        <button type="submit" class="btn btn-secondary w-100">Submit</button>
+      </div>
+    </div>
+  </form>
+{{/if}}

@@ -12,8 +12,8 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body>
-    <header class="display-flex justify-space-between align-center p-2">
+  <body id="main-body">
+    <header class="display-flex justify-space-between align-center">
       <nav class="ps-5 pb-3" style="background-color:black">
         {{#if logged_in}}
           <a href="/dashboard" class="dashboard m-3">Dashboard</a>
@@ -24,12 +24,12 @@
         {{/if}}
       </nav>
       <div class="jumbotron jumbotron-fluid text-center">
-        <h1 class="header display-4" id="header-title">
+        <h1 class="header display-4 mb-3" id="header-title">
           The Tech Blog
         </h1>
       </div>
     </header>
-    <main class="container container-fluid m-6 p-5" id="main-container">
+    <main class="container container-fluid m-6 p-1" id="main-container">
       {{! Render the sub layout }}
       {{{body}}}
     </main>
