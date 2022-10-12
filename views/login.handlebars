@@ -1,4 +1,27 @@
-<div class="row justify-space-between-md">
+<form class="login-form p-5">
+  <h1 class="mb-3">
+    Login
+  </h1>
+  <div class="mb-3">
+    <label for="username-login" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username-login" />
+  </div>
+  <div class="mb-3">
+    <label for="password-login" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password-login" />
+  </div>
+  <div class="form-group mb-3">
+    <button type="submit" class="btn btn-secondary w-100">Submit</button>
+  </div>
+  <div class="form-group">
+    <a href="/signup">Sign up instead</a>
+  </div>
+</form>
+
+<script src="/js/login.js"></script>
+
+{{! old codes }}
+{{! <div class="row justify-space-between-md">
   <div class="login-card">
     <h2 class="page-title">Login</h2>
     <form class="form login-form">
@@ -18,31 +41,4 @@
       </div>
     </form>
   </div>
-</div>
-
-<form class="p-5" id="login-form">
-  <h1 class="mb-3">
-    Login
-  </h1>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" />
-  </div>
-  <div class="mb-3">
-    <button type="submit" class="btn btn-secondary">Submit</button>
-  </div>
-  <div class="form-group">
-    <a href="/signup">Sign up instead</a>
-  </div>
-</form>
-
-<script src="/js/login.js"></script>
+</div> }}
