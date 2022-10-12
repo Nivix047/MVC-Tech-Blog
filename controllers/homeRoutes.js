@@ -65,4 +65,18 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
+router.get("/update", (req, res) => {
+  // If the user is alrady logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.render("update", {
+      logged_in: req.session.logged_in,
+    });
+  }
+});
+
+// Route to update
+// router.get("/update", withAuth, async (req, res) => {
+//   res.render("update");
+// });
+
 module.exports = router;
