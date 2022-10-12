@@ -1,11 +1,30 @@
-<div>{{#each posts}}
-    <div class="row align-center mb-5">
-      <div class="col-md-6">
-        <h2><a href="/post/{{id}}">
-            <span>{{title}}</span>
-            <span>Posted by {{user.username}} {{date_created}}</span></a></h2>
-        <div>{{body}}</div>
+<div class="container">
+  {{#each posts}}
+    <div
+      class="row m-5 border border-dark bg-secondary text-white"
+      id="userpost"
+    >
+      <div class="col text-left">
+        <a
+          href="/post/{{id}}"
+          class="text-decoration-none text-white"
+        >{{title}}</a>
+      </div>
+      <div class="col text-center">
+        {{date_created}}
       </div>
     </div>
   {{/each}}
 </div>
+
+{{! Old codes }}
+{{!-- <div>{{#each posts}}
+    <div class="row align-center mb-5">
+      <div class="col-md-6">
+        <h5><a href="/post/{{id}}">
+            <span>{{title}}</span>
+          </a><span> {{date_created}}</span></h5>
+      </div>
+    </div>
+  {{/each}}
+</div> --}}

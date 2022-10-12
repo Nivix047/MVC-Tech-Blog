@@ -37,6 +37,10 @@
   font-weight: bold;
 }
 
+#userpost {
+  border-radius: 8px;
+}
+
 /* #login-form {
   border: solid black;
 } */

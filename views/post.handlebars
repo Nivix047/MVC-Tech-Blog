@@ -4,6 +4,7 @@
     <span>Posted by {{user.username}} {{date_created}} </span>
   </h2>
   <div>{{body}}</div>
+{{!-- can do if logged && comment --}}
   {{#if logged_in}}
     <div>
       <form class="form comment-form">
@@ -17,5 +18,3 @@
     </div>
   {{/if}}
 </div>
-
-{{!-- can do if logged && comment --}}
