@@ -1,11 +1,11 @@
 <div>
-    <h2>
-      <span>{{title}}</span>
-        <span>Posted by {{user.username}} {{date_created}}  </span>
-    </h2>
-        <div>{{body}}</div>
-    {{#if logged_in}}
-  <div>
+  <h2>
+    <span>{{title}}</span>
+    <span>Posted by {{user.username}} {{date_created}} </span>
+  </h2>
+  <div>{{body}}</div>
+  {{#if logged_in}}
+    <div>
       <form class="form comment-form">
         <div class="form-group">
           <label for="post-comment">Comment</label>
@@ -15,6 +15,7 @@
           </div>
       </form>
     </div>
-    {{/if}}
-  </p>
+  {{/if}}
 </div>
+
+{{!-- can do if logged && comment --}}
