@@ -62,6 +62,10 @@
   background-color: var(--green);
 }
 
+#dashboard-body {
+  background-color: var(--green);
+}
+
 :root {
   --green: rgb(196, 216, 196);
 }

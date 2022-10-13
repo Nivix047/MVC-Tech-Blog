@@ -1,4 +1,25 @@
-<div>
+<form class="post-form m-2">
+  <div class="row border border-dark">
+    <div class="col border border-dark bg-dark text-white">Create New Post
+    </div>
+    <div class="mb-3">
+      <label for="post-name" class="form-label">Title</label>
+      <input type="text" class="form-control" id="post-name" />
+    </div>
+    <div class="mb-3">
+      <label for="post-description" class="form-label">Content</label>
+      <input type="text" class="form-control-lg w-100" id="post-description" />
+    </div>
+    <div class="form-group mb-3">
+      <button type="submit" class="btn btn-secondary w-100">Create</button>
+    </div>
+  </div>
+</form>
+
+<script src="/js/newpost.js"></script>
+
+{{! Old codes }}
+{{! <div>
   <h2>Create New Post</h2>
   <form class="form post-form">
     <div class="form-group">
@@ -14,5 +35,4 @@
     <button class="btn btn-primary" type="submit">Create</button>
   </div>
   </form>
-</div>
-<script src="/js/newpost.js"></script>
+</div> }}
