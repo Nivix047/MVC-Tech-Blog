@@ -31,4 +31,24 @@ router.get("/newpost", withAuth, async (req, res) => {
   });
 });
 
+router.get("/edit/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // Serialize data so the template can read it
+    const post = postData.get({ plain: true });
+    // Pass serialized data and session flag into template
+    res.render("update", {
+      layout: "dashboard",
+      post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;

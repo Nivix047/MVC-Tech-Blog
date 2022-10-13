@@ -3,28 +3,30 @@
     <div class="col border border-dark bg-dark text-white">Edit Post
     </div>
    <div class="mb-3">
-    <label for="update-title" class="form-label">Titile</label>
+    {{!-- postid can now be pulled from js --}}
+    <input type="hidden" name="post-id" value="{{post.id}}" />
+    <label for="update-title" class="form-label">Title</label>
     <input
       type="text"
       class="form-control"
       id="update-title"
-      value="{{title}}"
+      value="{{post.title}}"
     />
   </div>
   <div class="mb-3">
     <label for="update-post" class="form-label">Content</label>
-    <input type="text" class="form-control form-control-lg" id="update-post" />
+    <textarea type="text" class="form-control form-control-lg" id="update-post">{{post.body}}</textarea>
   </div>
   <div class="form-group mb-3">
     <button type="submit" class="btn btn-secondary w-100">Update Post</button>
   </div>
-  {{! Need to find out if this needs to be inside forms }}
+</form>
   <div class="mb-3">
     <button
       type="button"
       class="btn btn-secondary w-100"
-      data-id="{{post.id}}"
       id="delete-btn"
     >Delete Post</button>
   </div>
-</form>
+
+ <script src="/js/update.js"></scrip>

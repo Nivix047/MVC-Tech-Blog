@@ -1,19 +1,20 @@
+const postID = document.querySelector("input[name='post-id']").value;
 const updateFormHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector("#update-title").value.trim();
-  const content = document.querySelector("#update-post").value.trim();
-  if (title && content) {
+  const body = document.querySelector("#update-post").value.trim();
+  if (title && body) {
     // What API to grab
-    const response = await fetch("/api/update", {
-      method: "POST",
-      body: JSON.stringify({ title, content }),
+    const response = await fetch(`/api/post/${postID}`, {
+      method: "PUT",
+      body: JSON.stringify({ title, body }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
       // How to render
-      document.location.replace("/");
+      document.location.replace("/dashboard");
     } else {
       alert("Failed to update.");
     }
@@ -21,14 +22,13 @@ const updateFormHandler = async (event) => {
 };
 
 const deleteHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
-    const response = await fetch(`/api/post/${id}`, { method: "DELETE" });
-    if (response.ok) {
-      document.location.replace("/");
-    } else {
-      alert("Failed to delete");
-    }
+  const response = await fetch(`/api/post/${postID}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert("Failed to delete");
   }
 };
 

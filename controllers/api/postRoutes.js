@@ -22,7 +22,6 @@ router.put("/:id", withAuth, async (req, res) => {
     await Post.update(req.body, {
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
     res.status(200).json("Post successfully updated");
@@ -37,7 +36,6 @@ router.delete("/:id", async (req, res) => {
     const postData = await Post.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 
