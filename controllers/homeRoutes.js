@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
 
+// Render homepage
 router.get("/", async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -21,6 +22,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Render login form
 router.get("/login", (req, res) => {
   // If the user is alrady logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -31,6 +33,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// Render signup form
 router.get("/signup", (req, res) => {
   // If the user is alrady logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -41,6 +44,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+// Render posts
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -65,13 +69,38 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-// Update route
+// Render update form
 router.get("/update", (req, res) => {
   // If the user is alrady logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.render("update", {
       logged_in: req.session.logged_in,
     });
+  }
+});
+
+// Render comments to each post
+router.get("/comment/:id", async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: Post,
+          include: [User],
+        },
+      ],
+    });
+    console.log("----commentData----");
+    console.log(commentData);
+    const comment = commentData.get({ plain: true });
+
+    res.render("comment", {
+      ...comment,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
   }
 });
 
