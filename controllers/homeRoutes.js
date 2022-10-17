@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
 
-// Render homepage
+// Render homepage form
 router.get("/", async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -11,7 +11,6 @@ router.get("/", async (req, res) => {
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts);
     // Pass serialized data and session flag into template
     res.render("homepage", {
       posts,
@@ -56,12 +55,12 @@ router.get("/post/:id", async (req, res) => {
         },
       ],
     });
-    console.log("----postData----");
-    console.log(postData);
-    const post = postData.get({ plain: true });
 
+    const post = postData.get({ plain: true });
+    console.log("----post----");
+    console.log(post);
     res.render("post", {
-      ...post,
+      post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -69,7 +68,7 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-// Render update form
+// Render update route
 router.get("/update", (req, res) => {
   // If the user is alrady logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -79,29 +78,29 @@ router.get("/update", (req, res) => {
   }
 });
 
-// Render comments to each post
-router.get("/comment/:id", async (req, res) => {
-  try {
-    const commentData = await Comment.findByPk(req.params.id, {
-      include: [
-        User,
-        {
-          model: Post,
-          include: [User],
-        },
-      ],
-    });
-    console.log("----commentData----");
-    console.log(commentData);
-    const comment = commentData.get({ plain: true });
+// Render comment route
+// router.get("/comment/:id", async (req, res) => {
+//   try {
+//     const commentData = await Comment.findByPk(req.params.id, {
+//       include: [
+//         User,
+//         {
+//           model: Post,
+//           include: [User],
+//         },
+//       ],
+//     });
+//     console.log("----commentData----");
+//     console.log(commentData);
+//     const comment = commentData.get({ plain: true });
 
-    res.render("comment", {
-      ...comment,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err.message);
-  }
-});
+//     res.render("comment", {
+//       ...comment,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err.message);
+//   }
+// });
 
 module.exports = router;
