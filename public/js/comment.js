@@ -15,8 +15,7 @@ const commentFormHandler = async (event) => {
     console.log("----TEST-----");
     console.log(body);
     if (response.ok) {
-      // How to render
-      // document.location.replace("/");
+      document.location.replace("/");
     } else {
       alert("Failed to post comment.");
     }
