@@ -4,6 +4,10 @@
 
 A public forum that was built with the MVC model using express.js and handlebars.
 
+Deployed URL:
+
+https://mvc-tech-blog-project.herokuapp.com/login
+
 ## Screenshots
 
 ![Screen Shot 2022-10-20 at 11 51 34 PM](https://user-images.githubusercontent.com/97267318/197131927-40f20777-0042-4540-b8f3-e9ac308a8fca.png)
